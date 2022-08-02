@@ -86,7 +86,7 @@ If you want to recreate the database, basically delete the volume and then the d
 
 If gorm-example is still running:
 
-    docker down
+    docker compose down
 
 Let's see the volume, should be something like this:
 
