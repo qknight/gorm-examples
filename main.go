@@ -82,10 +82,6 @@ func main() {
 	// FIXME does not work
 	op := db.Model(&CreditCard{}).Joins("INNER JOIN credit_card_users ccu ON ccu.id = credit_cards.user_id").Where("ccu.name = ? AND credit_cards.bank = ?", "sirTuxedo", "Bankxter").Update("number", "23422342")
 
-	// FIXME
-	// [0.365ms] [rows:0] UPDATE "credit_cards" SET "number"='23422342',"updated_at"='2022-08-01 13:40:52.819' WHERE (ccu.name = 'sirTuxedo' AND credit_cards.bank = 'Bankxter') AND "credit_cards"."deleted_at" IS NULL
-	// Couldn't update credit card number:  ERROR: missing FROM-clause entry for table "ccu" (SQLSTATE 42P01)
-
 	if op.Error != nil {
 		fmt.Println("Couldn't update credit card number: ", op.Error)
 	}

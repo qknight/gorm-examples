@@ -71,6 +71,15 @@ So your examples will always have a correct schema.
     4 | 2022-08-02 09:01:02.191714+00 | 2022-08-02 09:01:02.201393+00 |            | happyUser
     (4 rows)
 
+## Use pgadmin to access the database
+
+You need to enable it in the docker-compose.yaml and then:
+
+    docker compose up -d
+
+pgadmin might be nice to build bigger DB requests. In general, I prefer psql for its simplicity as pgadmin's session
+frequently break with the docker compose restarts from the goland IDE.
+
 ## Flush the contents of the postgresql state
 
 If you want to recreate the database, basically delete the volume and then the database gets created automatically:
