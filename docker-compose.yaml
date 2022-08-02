@@ -1,11 +1,12 @@
 version: "3.8"
 
 x-DATABASE_PASSWORD: &x-DATABASE_PASSWORD "45b6456b456b456b456b456b4561"
+x-DATABASE_DATABASE: &x-DATABASE_DATABASE "gorm-example"
 x-common-variables: &common-variables
   DATABASE_URL: "postgresql"
   DATABASE_PORT: 5432
   DATABASE_USER: "postgres"
-  DATABASE_DATABASE: "serverprovisioning"
+  DATABASE_DATABASE: *x-DATABASE_DATABASE
 
 services:
   go-example:
@@ -31,6 +32,7 @@ services:
     environment:
       <<: *common-variables
       POSTGRES_PASSWORD: *x-DATABASE_PASSWORD
+      POSTGRES_DB: *x-DATABASE_DATABASE
     networks:
       my-network:
 
