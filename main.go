@@ -32,8 +32,7 @@ func main() {
 	//https://gorm.io/docs/connecting_to_the_database.html
 	port, err := strconv.Atoi(os.Getenv("DATABASE_PORT"))
 	if err != nil {
-		fmt.Print("Given DATABASE_PORT is not a valid integer: ", err)
-		os.Exit(1)
+		log.Fatal(err)
 	}
 	dsn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
 		os.Getenv("DATABASE_URL"), port, os.Getenv("DATABASE_USER"), os.Getenv("DATABASE_PASSWORD"), os.Getenv("DATABASE_DATABASE"))
