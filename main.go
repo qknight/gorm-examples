@@ -50,9 +50,6 @@ func main() {
 	db.AutoMigrate(&CreditCardUser{})
 	db.AutoMigrate(&CreditCard{})
 
-	// https://github.com/harranali/gorm-relationships-examples/tree/main/has-many
-	// https://gist.github.com/jtbonhomme/ff6db22b8dcac7dd9349e26bad002fb1
-	fmt.Println("About to create a relational object")
 	// insert new record
 	db.Create(&CreditCardUser{Name: "mrFlux", CreditCards: []CreditCard{{Number: "1234567898", Bank: "FinFisher"}, {Number: "345657881", Bank: "MaxedOut Limited"}}})
 	db.Create(&CreditCardUser{Name: "sirTuxedo", CreditCards: []CreditCard{{Number: "999999999", Bank: "FinFisher"}, {Number: "2342", Bank: "Bankxter"}}})
@@ -138,5 +135,5 @@ func main() {
 	fmt.Println("---8-----------------------------------")
 	db.Unscoped().Delete(&CreditCardUser{}, "name = ?", "mrGone")
 
-	fmt.Println("/About to create a relational object")
+	fmt.Println("Exiting program")
 }
