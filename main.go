@@ -10,7 +10,6 @@ import (
 	"strconv"
 )
 
-// User has many CreditCards, UserID is the foreign key
 type CreditCardUser struct {
 	gorm.Model
 	Name        string
@@ -44,7 +43,10 @@ func main() {
 		log.Fatal(err)
 	}
 
+	// remove old entries
 	db.Migrator().DropTable(&CreditCardUser{}, &CreditCard{})
+
+	// create table with correct schema
 	db.AutoMigrate(&CreditCardUser{})
 	db.AutoMigrate(&CreditCard{})
 
