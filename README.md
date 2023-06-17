@@ -114,4 +114,7 @@ Note: Normally this should not be needed.
 
 Then you can hack on the main.go and do this over and over.
 
-    
+# sqlite3
+
+The sqlite3 folder contains an example for an articles/tags example with lots of calls to the database which
+might be interesting. It is basically a test but it is also a good example for how to use sqlite3 with gorm.
